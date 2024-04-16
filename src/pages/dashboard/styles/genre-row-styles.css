@@ -1,0 +1,21 @@
+.ganre_row {
+  display: flex;
+  gap: 10px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.ganre_row::-webkit-scrollbar {
+  display: none;
+}
+
+.row_img {
+  object-fit: contain;
+  min-width: 225px;
+}
+.row_img:hover {
+  cursor: pointer;
+  transform: scale(1.06);
+}
+.row_img_lg {
+  max-height: 335px;
+}
