@@ -1,14 +1,5 @@
-import ListsDisplay from "./components/ListsDisplay";
-
-const Dashboard: React.FC = () => {
-  return (
-    <>
-      {/* <Banner /> */}
-      {/* <Suspense fallback={<>Loading...2</>}> */}
-      <ListsDisplay />
-      {/* </Suspense> */}
-    </>
-  );
+const Dashboard = () => {
+  return <div>Dashboard</div>;
 };
 
 export default Dashboard;

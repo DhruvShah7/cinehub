@@ -8,14 +8,7 @@
   display: none;
 }
 
-.row_img {
-  object-fit: contain;
-  min-width: 225px;
-}
 .row_img:hover {
   cursor: pointer;
-  transform: scale(1.06);
-}
-.row_img_lg {
-  max-height: 335px;
+  transform: scale(1.04);
 }
