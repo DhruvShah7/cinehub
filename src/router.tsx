@@ -1,12 +1,12 @@
 import { lazy } from "react";
 import {
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
+    Route,
+    createBrowserRouter,
+    createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App";
 import CustomLayout from "./HOCs/Layout";
-import { MOVIES, ROOT } from "./routes";
+import { MOVIES, ROOT } from "./constants/internal-routes";
 const Dashboard = lazy(() => import("./pages/dashboard"));
 const Movies = lazy(() => import("./pages/movies"));
 

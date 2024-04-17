@@ -1,13 +1,13 @@
 import {
-  DesktopOutlined,
-  HomeOutlined,
-  SearchOutlined,
-  VideoCameraOutlined,
+    DesktopOutlined,
+    HomeOutlined,
+    SearchOutlined,
+    VideoCameraOutlined,
 } from "@ant-design/icons";
 import { startTransition, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { MOVIES, ROOT, TV_SHOWS } from "../../../constants/internal-routes";
 import useIsMobile from "../../../custom-hooks/useIsMobile";
-import { MOVIES, ROOT, TV_SHOWS } from "../../../routes";
 
 interface DrawerPropTypes {
   isDrawerOpen: boolean;

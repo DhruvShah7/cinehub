@@ -6,7 +6,7 @@ import {
   TMDB_GENRE_URL,
   TOP_RATED,
 } from "../../../constants/api-routes";
-import { GenreType } from "../types";
+import { GenreType } from "../../../constants/types";
 import GenreSection from "./GenreSection";
 
 const ListsDisplay = () => {

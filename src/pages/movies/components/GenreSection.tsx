@@ -3,8 +3,8 @@ import { Skeleton } from "antd";
 import axios from "axios";
 import { Suspense } from "react";
 import { TMDB_IMG_BASE_URL } from "../../../constants/api-routes";
+import { MovieType } from "../../../constants/types";
 import "../styles/genre-row-styles.css";
-import { MovieType } from "../types";
 
 const GenreRow = ({
   id,
