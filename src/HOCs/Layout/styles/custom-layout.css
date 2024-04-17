@@ -85,9 +85,13 @@
   height: 100dvh;
   height: 100vh;
   margin-left: 80px;
-  padding: 20px;
 }
 
 .blur {
   filter: blur(5px);
+}
+
+.mobile-content {
+  margin-left: 0px;
+  padding: 0px 20px;
 }

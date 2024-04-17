@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import useIsMobile from "../../custom-hooks/useIsMobile";
 import Drawer from "./components/Drawer";
 import "./styles/custom-layout.css";
 
 const CustomLayout: React.FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const isMobile = useIsMobile();
 
   const openDrawer = () => {
     setDrawerOpen(true);
@@ -20,7 +23,9 @@ const CustomLayout: React.FC = () => {
         openDrawer={openDrawer}
         closeDrawer={closeDrawer}
       />
-      <div className={`main-content ${drawerOpen ? "blur" : ""}`}>
+      <div
+        className={`main-content ${drawerOpen ? "blur" : ""} ${isMobile ? "mobile-content" : ""}`}
+      >
         {/* Main content here */}
         <Outlet />
       </div>

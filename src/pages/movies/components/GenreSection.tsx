@@ -1,10 +1,10 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Image, Skeleton } from "antd";
+import { Skeleton } from "antd";
 import axios from "axios";
 import { Suspense } from "react";
 import { TMDB_IMG_BASE_URL } from "../../../constants/api-routes";
+import { MovieType } from "../../../constants/types";
 import "../styles/genre-row-styles.css";
-import { MovieType } from "../types";
 
 const GenreRow = ({
   id,
@@ -27,12 +27,17 @@ const GenreRow = ({
   return (
     <div className={"ganre_row"}>
       {movies.map((movie: MovieType) => (
-        <Image
+        <div
           key={movie.id}
-          src={`${TMDB_IMG_BASE_URL}/${size === "sm" ? movie.backdrop_path : movie.poster_path}`}
-          width={"100%"}
-          preview={false}
-          className={`row_img ${size === "lg" && "row_img_lg"}`}
+          style={{
+            backgroundImage: `url(${size === "sm" ? `${TMDB_IMG_BASE_URL}/${movie.backdrop_path}` : `${TMDB_IMG_BASE_URL}/${movie.poster_path}`})`,
+            backgroundSize: "cover",
+            objectFit: "contain",
+            backgroundPosition: "center",
+            minWidth: 225,
+            height: size === "lg" ? 335 : 140,
+          }}
+          className={"row_img"}
         />
       ))}
     </div>
@@ -63,7 +68,7 @@ const GenreSection = ({
                 key={i}
                 active
                 className={"row_img"}
-                style={size === "lg" ? { height: 325 } : {}}
+                style={{ height: size === "lg" ? 335 : 140 }}
               />
             ))}
           </div>

@@ -1,10 +1,12 @@
 import {
-  DesktopOutlined,
-  HomeOutlined,
-  SearchOutlined,
-  VideoCameraOutlined,
+    DesktopOutlined,
+    HomeOutlined,
+    SearchOutlined,
+    VideoCameraOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
+import { startTransition, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { MOVIES, ROOT, TV_SHOWS } from "../../../constants/internal-routes";
 import useIsMobile from "../../../custom-hooks/useIsMobile";
 
 interface DrawerPropTypes {
@@ -14,12 +16,30 @@ interface DrawerPropTypes {
 }
 
 const Drawer = ({ isDrawerOpen, openDrawer, closeDrawer }: DrawerPropTypes) => {
-  const [selectedMenuItem, setSelectedMenuItem] = useState(1);
+  const [selectedMenuItem, setSelectedMenuItem] = useState(ROOT);
 
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleMenuItemClick = (index: number) => {
-    setSelectedMenuItem(index);
+  useEffect(() => {
+    const pathname = location.pathname;
+    switch (pathname) {
+      case MOVIES:
+      case TV_SHOWS:
+        setSelectedMenuItem(pathname);
+        break;
+      default:
+        setSelectedMenuItem(ROOT);
+        break;
+    }
+  }, []);
+
+  const handleMenuItemClick = (route: string) => {
+    setSelectedMenuItem(route);
+    startTransition(() => {
+      navigate(route);
+    });
   };
 
   return (
@@ -33,57 +53,61 @@ const Drawer = ({ isDrawerOpen, openDrawer, closeDrawer }: DrawerPropTypes) => {
               onMouseOver={openDrawer}
               onMouseLeave={closeDrawer}
             >
-              <div className="menu-item" onClick={() => handleMenuItemClick(0)}>
-                <span
-                  className={`icon ${selectedMenuItem === 0 ? "selected" : ""}`}
-                >
+              <div
+                className="menu-item"
+                onClick={() => handleMenuItemClick(ROOT)}
+              >
+                <span className={`icon`}>
                   <SearchOutlined />
                 </span>
-                {isDrawerOpen && (
-                  <span
-                    className={`text ${selectedMenuItem === 0 ? "selected" : ""}`}
-                  >
-                    Search
-                  </span>
-                )}
+                {isDrawerOpen && <span className={`text`}>Search</span>}
               </div>
-              <div className="menu-item" onClick={() => handleMenuItemClick(1)}>
+              <div
+                className="menu-item"
+                onClick={() => handleMenuItemClick(ROOT)}
+              >
                 <span
-                  className={`icon ${selectedMenuItem === 1 ? "selected" : ""}`}
+                  className={`icon ${selectedMenuItem === ROOT ? "selected" : ""}`}
                 >
                   <HomeOutlined />
                 </span>
                 {isDrawerOpen && (
                   <span
-                    className={`text ${selectedMenuItem === 1 ? "selected" : ""}`}
+                    className={`text ${selectedMenuItem === ROOT ? "selected" : ""}`}
                   >
                     Home
                   </span>
                 )}
               </div>
-              <div className="menu-item" onClick={() => handleMenuItemClick(2)}>
+              <div
+                className="menu-item"
+                onClick={() => handleMenuItemClick(MOVIES)}
+              >
                 <span
-                  className={`icon ${selectedMenuItem === 2 ? "selected" : ""}`}
+                  className={`icon ${selectedMenuItem === MOVIES ? "selected" : ""}`}
                 >
                   <VideoCameraOutlined />
                 </span>
                 {isDrawerOpen && (
                   <span
-                    className={`text ${selectedMenuItem === 2 ? "selected" : ""}`}
+                    className={`text ${selectedMenuItem === MOVIES ? "selected" : ""}`}
                   >
                     Movies
                   </span>
                 )}
               </div>
-              <div className="menu-item" onClick={() => handleMenuItemClick(3)}>
+              <div
+                className="menu-item"
+                onClick={() => handleMenuItemClick(TV_SHOWS)}
+              >
                 <span
-                  className={`icon ${selectedMenuItem === 3 ? "selected" : ""}`}
+                  className={`icon ${selectedMenuItem === TV_SHOWS ? "selected" : ""}`}
                 >
                   <DesktopOutlined />
                 </span>
                 {isDrawerOpen && (
                   <span
-                    className={`text ${selectedMenuItem === 3 ? "selected" : ""}`}
+                    className={`text ${selectedMenuItem === TV_SHOWS ? "selected" : ""}`}
                   >
                     TV Shows
                   </span>
