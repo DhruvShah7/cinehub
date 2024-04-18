@@ -1,0 +1,27 @@
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="994.3820224719102" 
+        height="994.3820224719102" viewBox="0 0 994.3820224719102 994.3820224719102">
+			
+			<g transform="scale(8.426966292134832) translate(10, 10)">
+				<defs id="SvgjsDefs9156">
+          <linearGradient id="SvgjsLinearGradient9163">
+            <stop id="SvgjsStop9164" stop-color="#7d141d" offset="0"></stop>
+            <stop id="SvgjsStop9165" stop-color="#ff1e27" offset="1"></stop>
+          </linearGradient>
+          <linearGradient id="SvgjsLinearGradient9166">
+            <stop id="SvgjsStop9167" stop-color="#7d141d" offset="0"></stop>
+            <stop id="SvgjsStop9168" stop-color="#ff1e27" offset="1"></stop>
+          </linearGradient>
+          <linearGradient id="SvgjsLinearGradient9169">
+            <stop id="SvgjsStop9170" stop-color="#7d141d" offset="0"></stop>
+            <stop id="SvgjsStop9171" stop-color="#ff1e27" offset="1"></stop>
+          </linearGradient>
+        </defs>
+        <g id="SvgjsG9157" featureKey="UFHKJ9-0" transform="matrix(1,0,0,1,0,-0.3729991912841797)" fill="url(#SvgjsLinearGradient9163)">
+          <g xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,43.564L72.453,56.455V45.404c7.258-3.473,12.27-10.883,12.27-19.465c0-11.911-9.656-21.566-21.57-21.566   c-9.918,0-18.271,6.693-20.791,15.809C39.842,11.066,31.488,4.373,21.57,4.373C9.657,4.373,0,14.028,0,25.939   c0,8.682,5.13,16.163,12.523,19.584v47.393h59.93V82.738L100,95.627V43.564z M31.099,45.292c5.458-2.692,9.612-7.623,11.263-13.596   c1.651,5.973,5.805,10.903,11.264,13.596H31.099z M63.152,10.017c8.796,0,15.926,7.129,15.926,15.922   c0,8.794-7.13,15.923-15.926,15.923c-8.794,0-15.923-7.129-15.923-15.923C47.229,17.146,54.358,10.017,63.152,10.017z    M5.646,25.939c0-8.793,7.13-15.922,15.924-15.922c8.795,0,15.925,7.129,15.925,15.922c0,8.794-7.129,15.923-15.925,15.923   C12.775,41.862,5.646,34.733,5.646,25.939z M21.57,34.308c-4.622,0-8.37-3.746-8.37-8.369c0-4.622,3.748-8.369,8.37-8.369   c4.623,0,8.371,3.747,8.371,8.369C29.94,30.562,26.193,34.308,21.57,34.308z M54.783,25.939c0-4.622,3.748-8.369,8.369-8.369   c4.623,0,8.371,3.747,8.371,8.369c0,4.623-3.748,8.369-8.371,8.369C58.531,34.308,54.783,30.562,54.783,25.939z"></path>
+          </g>
+        </g>
+			</g>
+		</svg>
+	

@@ -1,30 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import useIsMobile from "../../custom-hooks/useIsMobile";
+import useCommonContext from "../Context/useCommonContext";
 import Drawer from "./components/Drawer";
 import "./styles/custom-layout.css";
 
 const CustomLayout: React.FC = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { isDrawerOpen } = useCommonContext();
 
   const isMobile = useIsMobile();
 
-  const openDrawer = () => {
-    setDrawerOpen(true);
-  };
-  const closeDrawer = () => {
-    setDrawerOpen(false);
-  };
-
   return (
     <div id="app-container">
-      <Drawer
-        isDrawerOpen={drawerOpen}
-        openDrawer={openDrawer}
-        closeDrawer={closeDrawer}
-      />
+      <Drawer />
       <div
-        className={`main-content ${drawerOpen ? "blur" : ""} ${isMobile ? "mobile-content" : ""}`}
+        className={`main-content ${isDrawerOpen ? "blur" : ""} ${isMobile ? "mobile-content" : ""}`}
       >
         {/* Main content here */}
         <Outlet />

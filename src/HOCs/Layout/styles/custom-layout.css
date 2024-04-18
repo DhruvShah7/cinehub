@@ -19,7 +19,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .menu {
@@ -94,4 +94,11 @@
 .mobile-content {
   margin-left: 0px;
   padding: 0px 20px;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+  .drawer {
+    width: 0;
+  }
 }
