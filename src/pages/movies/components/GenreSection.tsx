@@ -57,9 +57,9 @@ const GenreSection = ({
 }) => {
   return (
     <div>
-      <h2 style={{ textTransform: "uppercase", marginBottom: "8px" }}>
+      <h3 style={{ textTransform: "capitalize", marginBottom: "8px" }}>
         {title}
-      </h2>
+      </h3>
       <Suspense
         fallback={
           <div className={"ganre_row"}>
