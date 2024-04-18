@@ -4,10 +4,13 @@
   top: 0;
   background-color: #242424;
   padding: 15px 20px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 50px;
   z-index: 1000;
+  border-bottom: 1px solid rgba(253, 253, 253, 0.12);
 }
 
 /* Media query for small screens */
@@ -22,8 +25,5 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .right-side-content {
-    margin-top: 15px;
   }
 }

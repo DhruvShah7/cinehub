@@ -56,7 +56,7 @@ const GenreSection = ({
   size?: "sm" | "lg";
 }) => {
   return (
-    <div style={{ marginTop: "32px" }}>
+    <div>
       <h2 style={{ textTransform: "uppercase", marginBottom: "8px" }}>
         {title}
       </h2>
