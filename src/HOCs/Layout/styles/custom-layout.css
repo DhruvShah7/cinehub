@@ -95,3 +95,10 @@
   margin-left: 0px;
   padding: 0px 20px;
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+  .drawer {
+    width: 0;
+  }
+}

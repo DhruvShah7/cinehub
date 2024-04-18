@@ -15,8 +15,15 @@
   .sticky-header {
     flex-direction: column;
     align-items: center;
+    padding: 15px 0px;
   }
   .dashboard-logo {
-    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .right-side-content {
+    margin-top: 15px;
   }
 }
