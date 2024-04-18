@@ -1,11 +1,12 @@
 import {
-    DesktopOutlined,
-    HomeOutlined,
-    SearchOutlined,
-    VideoCameraOutlined,
+  DesktopOutlined,
+  HomeOutlined,
+  SearchOutlined,
+  VideoCameraOutlined,
 } from "@ant-design/icons";
 import { startTransition, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import cinehubLogo from "../../../assets/cinehub-logo.svg";
 import { MOVIES, ROOT, TV_SHOWS } from "../../../constants/internal-routes";
 import useIsMobile from "../../../custom-hooks/useIsMobile";
 
@@ -48,6 +49,16 @@ const Drawer = ({ isDrawerOpen, openDrawer, closeDrawer }: DrawerPropTypes) => {
         <div className="drawer-container">
           {isDrawerOpen && <div className="backdrop" onClick={closeDrawer} />}
           <div className={isDrawerOpen ? "drawer open" : "drawer"}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                paddingTop: 15,
+                visibility: isDrawerOpen ? "unset" : "hidden",
+              }}
+            >
+              <img src={cinehubLogo} alt="cinehub-logo" width={"160px"} />
+            </div>
             <div
               className="menu"
               onMouseOver={openDrawer}
@@ -114,6 +125,7 @@ const Drawer = ({ isDrawerOpen, openDrawer, closeDrawer }: DrawerPropTypes) => {
                 )}
               </div>
             </div>
+            <div />
           </div>
         </div>
       )}

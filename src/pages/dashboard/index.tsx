@@ -1,6 +1,7 @@
 import { DesktopOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { Segmented } from "antd";
 import { useState } from "react";
+import cinehubLogo from "../../assets/cinehub-logo.svg";
 import StickyHeader from "../../components/StickyHeader";
 import MoviesList from "./components/MoviesList";
 import TVShowsList from "./components/TVShowsList";
@@ -14,6 +15,9 @@ const Dashboard = () => {
   return (
     <div>
       <StickyHeader>
+        <div className="dashboard-logo">
+          <img src={cinehubLogo} alt="cinehub-logo" width={"160px"} />
+        </div>
         <Segmented
           size={"large"}
           defaultValue={selectedTab}
@@ -28,7 +32,6 @@ const Dashboard = () => {
           onChange={(value: TabsType) => setSelectedTab(value)}
         />
       </StickyHeader>
-
       <div style={{ padding: "0px 20px" }}>
         {selectedTab === "movies" && <MoviesList />}
         {selectedTab === "tv-shows" && <TVShowsList />}
