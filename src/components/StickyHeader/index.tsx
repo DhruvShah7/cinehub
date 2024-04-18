@@ -5,7 +5,7 @@ import cinehubLogo from "../../assets/cinehub-logo.svg";
 import useIsMobile from "../../custom-hooks/useIsMobile";
 import "./sticky-header.css";
 
-type StickyHeaderPropsType = { children: ReactNode };
+type StickyHeaderPropsType = { children?: ReactNode };
 
 const StickyHeader = ({ children }: StickyHeaderPropsType) => {
   const { openDrawer } = useCommonContext();
@@ -20,7 +20,7 @@ const StickyHeader = ({ children }: StickyHeaderPropsType) => {
         )}
         <img src={cinehubLogo} alt="cinehub-logo" width={"160px"} />
       </div>
-      <div className="right-side-content">{children}</div>
+      {!isMobile && <div className="right-side-content">{children}</div>}
     </header>
   );
 };

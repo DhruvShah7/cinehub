@@ -56,10 +56,10 @@ const GenreSection = ({
   size?: "sm" | "lg";
 }) => {
   return (
-    <div style={{ marginTop: "32px" }}>
-      <h2 style={{ textTransform: "uppercase", marginBottom: "8px" }}>
+    <div>
+      <h3 style={{ textTransform: "capitalize", marginBottom: "8px" }}>
         {title}
-      </h2>
+      </h3>
       <Suspense
         fallback={
           <div className={"ganre_row"}>
