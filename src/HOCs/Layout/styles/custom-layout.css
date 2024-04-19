@@ -81,7 +81,6 @@
 }
 
 .main-content {
-  overflow-y: auto;
   height: 100dvh;
   height: 100vh;
   margin-left: 80px;

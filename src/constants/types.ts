@@ -1,3 +1,5 @@
+export type CineType = "movie" | "tv";
+
 export interface MovieType {
   adult: boolean;
   backdrop_path: string;

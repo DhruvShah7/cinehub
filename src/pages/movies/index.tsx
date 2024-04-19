@@ -1,8 +1,9 @@
 import { FilterOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import { useEffect } from "react";
 import StickyHeader from "../../components/StickyHeader";
 import useIsMobile from "../../custom-hooks/useIsMobile";
-import ListsDisplay from "./components/ListsDisplay";
+import MoviesListsDisplay from "./components/MoviesListsDisplay";
 
 const MoviesHeaderAndFilter = () => (
   <div
@@ -20,6 +21,11 @@ const MoviesHeaderAndFilter = () => (
 
 const Movies: React.FC = () => {
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <StickyHeader>
@@ -28,7 +34,7 @@ const Movies: React.FC = () => {
       {/* <Banner /> */}
       {/* <Suspense fallback={<>Loading...2</>}> */}
       {isMobile && <MoviesHeaderAndFilter />}
-      <ListsDisplay />
+      <MoviesListsDisplay />
       {/* </Suspense> */}
     </>
   );

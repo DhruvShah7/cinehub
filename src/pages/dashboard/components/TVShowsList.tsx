@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import {
-  GET_DISCOVER_TV,
+  TMDB_DISCOVER_URL,
   TMDB_IMG_BASE_URL,
 } from "../../../constants/api-routes";
 import { TVSType } from "../../../constants/types";
@@ -20,7 +20,9 @@ const TVShowsList = () => {
   } = useInfiniteQuery({
     queryKey: ["discover-tvshows"],
     queryFn: async ({ pageParam }: { pageParam: number }) => {
-      const response = await axios.get(`${GET_DISCOVER_TV}&page=${pageParam}`);
+      const response = await axios.get(
+        `${TMDB_DISCOVER_URL("tv")}&page=${pageParam}`,
+      );
       return response.data.results;
     },
     initialPageParam: 1,

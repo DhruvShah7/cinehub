@@ -1,22 +1,27 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useEffect } from "react";
+import GenreSection from "../../../components/GenreSection";
 import {
-  GET_GENRE_MOVIES,
+  GET_ITEMS_BY_GENRE,
   POPULAR,
   TMDB_GENRE_URL,
   TOP_RATED,
 } from "../../../constants/api-routes";
 import { GenreType } from "../../../constants/types";
-import GenreSection from "./GenreSection";
 
-const ListsDisplay = () => {
+const TvsListsDisplay = () => {
   const { error, data: genreList } = useSuspenseQuery({
-    queryKey: ["genre-list"],
+    queryKey: ["tvs-genre-list"],
     queryFn: async () => {
-      const response = await axios.get(TMDB_GENRE_URL);
+      const response = await axios.get(TMDB_GENRE_URL("tv"));
       return response.data?.genres;
     },
   });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   if (error) return <>Error!</>;
 
@@ -24,24 +29,27 @@ const ListsDisplay = () => {
     <>
       <GenreSection
         key={"popular"}
+        type={"tv"}
         id={"popular"}
         title={"Popular"}
-        fetchUrl={POPULAR}
+        fetchUrl={POPULAR("tv")}
         size="lg"
       />
       <GenreSection
         key={"top-rated"}
+        type={"tv"}
         id={"top-rated"}
         title={"Top rated"}
-        fetchUrl={TOP_RATED}
+        fetchUrl={TOP_RATED("tv")}
       />
       <>
         {genreList?.map((genre: GenreType) => (
           <GenreSection
             key={genre.id}
+            type={"tv"}
             id={genre.id}
             title={genre.name}
-            fetchUrl={`${GET_GENRE_MOVIES}${genre.id}`}
+            fetchUrl={`${GET_ITEMS_BY_GENRE("tv")}${genre.id}`}
           />
         ))}
       </>
@@ -49,4 +57,4 @@ const ListsDisplay = () => {
   );
 };
 
-export default ListsDisplay;
+export default TvsListsDisplay;
