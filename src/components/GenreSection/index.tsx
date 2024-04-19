@@ -4,7 +4,7 @@ import axios from "axios";
 import { Suspense } from "react";
 import { TMDB_IMG_BASE_URL } from "../../constants/api-routes";
 import { CineType, MovieType, TVSType } from "../../constants/types";
-import "./genre-row-styles.css";
+import "./genre-section-styles.css";
 
 type GenreRowPropsType = {
   type: CineType;

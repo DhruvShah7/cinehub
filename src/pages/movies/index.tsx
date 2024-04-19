@@ -31,11 +31,8 @@ const Movies: React.FC = () => {
       <StickyHeader>
         <MoviesHeaderAndFilter />
       </StickyHeader>
-      {/* <Banner /> */}
-      {/* <Suspense fallback={<>Loading...2</>}> */}
       {isMobile && <MoviesHeaderAndFilter />}
       <MoviesListsDisplay />
-      {/* </Suspense> */}
     </>
   );
 };

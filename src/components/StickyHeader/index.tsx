@@ -1,5 +1,5 @@
 import { MenuOutlined } from "@ant-design/icons";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import useCommonContext from "../../HOCs/Context/useCommonContext";
 import cinehubLogo from "../../assets/cinehub-logo.svg";
 import useIsMobile from "../../custom-hooks/useIsMobile";
@@ -7,7 +7,9 @@ import "./sticky-header.css";
 
 type StickyHeaderPropsType = { children?: ReactNode };
 
-const StickyHeader = ({ children }: StickyHeaderPropsType) => {
+const StickyHeader: React.FC<StickyHeaderPropsType> = ({
+  children,
+}: StickyHeaderPropsType) => {
   const { openDrawer } = useCommonContext();
 
   const isMobile = useIsMobile();
