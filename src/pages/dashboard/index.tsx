@@ -1,6 +1,6 @@
 import { DesktopOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { Segmented } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StickyHeader from "../../components/StickyHeader";
 import useIsMobile from "../../custom-hooks/useIsMobile";
 import MoviesList from "./components/MoviesList";
@@ -13,6 +13,10 @@ const Dashboard = () => {
   const [selectedTab, setSelectedTab] = useState<TabsType>("movies");
 
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div>

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import {
-  GET_DISCOVER_MOVIES,
+  TMDB_DISCOVER_URL,
   TMDB_IMG_BASE_URL,
 } from "../../../constants/api-routes";
 import { MovieType } from "../../../constants/types";
@@ -21,7 +21,7 @@ const MoviesList = () => {
     queryKey: ["discover-movies"],
     queryFn: async ({ pageParam }: { pageParam: number }) => {
       const response = await axios.get(
-        `${GET_DISCOVER_MOVIES}&page=${pageParam}`,
+        `${TMDB_DISCOVER_URL("movie")}&page=${pageParam}`,
       );
       return response.data.results;
     },

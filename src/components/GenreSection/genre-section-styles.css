@@ -8,7 +8,10 @@
   display: none;
 }
 
-.row_img:hover {
-  cursor: pointer;
-  transform: scale(1.04);
+.ant-card-cover {
+  margin: 0px !important;
+}
+
+.item-card:hover {
+  transform: scale(1.02);
 }
