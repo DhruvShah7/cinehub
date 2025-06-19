@@ -1,5 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import axios from "axios";
+
+import axios from "../../../lib/axios";
 import GenreSection from "../../../components/GenreSection";
 import {
   GET_ITEMS_BY_GENRE,

@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Carousel, Image } from "antd";
-import axios from "axios";
+
+import axios from "../../../lib/axios";
 import { NOW_PLAYING, TMDB_IMG_BASE_URL } from "../../../constants/api-routes";
 import { MovieType } from "../../../constants/types";
 
