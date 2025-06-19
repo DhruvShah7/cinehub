@@ -8,11 +8,11 @@ import {
 import App from "./App";
 import CustomLayout from "./HOCs/Layout";
 import { MOVIES, ROOT, TV_SHOWS } from "./constants/internal-routes";
-import { ErrorFallback } from "./pages/ErrorFallback";
+import { ErrorFallback } from "./pages/error-fallback";
 
-const Dashboard = lazy(() => import("./pages/Dashboard"));
-const Movies = lazy(() => import("./pages/Movies"));
-const TVShows = lazy(() => import("./pages/Tvs"));
+const Dashboard = lazy(() => import("./pages/dashboard"));
+const Movies = lazy(() => import("./pages/movies"));
+const TVShows = lazy(() => import("./pages/tvs"));
 const NotFound = lazy(() => import("./pages/404"));
 
 const router = createBrowserRouter(
