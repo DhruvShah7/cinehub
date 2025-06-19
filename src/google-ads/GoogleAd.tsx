@@ -3,9 +3,9 @@ import { useEffect } from "react";
 const GoogleAd = () => {
   useEffect(() => {
     try {
-      // Ensure adsbygoogle is defined
       if (typeof window !== "undefined") {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        window.adsbygoogle = window.adsbygoogle || [];
+        window.adsbygoogle.push({});
       }
     } catch (e) {
       console.error("Adsense error:", e);
