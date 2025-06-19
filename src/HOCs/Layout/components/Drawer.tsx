@@ -12,7 +12,7 @@ import useIsMobile from "../../../custom-hooks/useIsMobile";
 import useCommonContext from "../../Context/useCommonContext";
 
 const Drawer = () => {
-  const [selectedMenuItem, setSelectedMenuItem] = useState(ROOT);
+  const [selectedMenuItem, setSelectedMenuItem] = useState<string | null>(null);
   const { isDrawerOpen, openDrawer, closeDrawer } = useCommonContext();
 
   const isMobile = useIsMobile();
@@ -21,23 +21,15 @@ const Drawer = () => {
 
   useEffect(() => {
     const pathname = location.pathname;
-    switch (pathname) {
-      case MOVIES:
-      case TV_SHOWS:
-        setSelectedMenuItem(pathname);
-        break;
-      default:
-        setSelectedMenuItem(ROOT);
-        break;
-    }
-  }, []);
+    setSelectedMenuItem(pathname);
+  }, [location.pathname]);
 
   const handleMenuItemClick = (route: string) => {
     setSelectedMenuItem(route);
     startTransition(() => {
       navigate(route);
-      isMobile && closeDrawer();
     });
+    isMobile && closeDrawer();
   };
 
   return (

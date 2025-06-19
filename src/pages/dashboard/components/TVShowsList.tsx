@@ -1,13 +1,10 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { Card, List } from "antd";
-import axios from "axios";
 import { useEffect } from "react";
+import { Card, List } from "antd";
 import { useInView } from "react-intersection-observer";
-import {
-  TMDB_DISCOVER_URL,
-  TMDB_IMG_BASE_URL,
-} from "../../../constants/api-routes";
+
+import { TMDB_IMG_BASE_URL } from "../../../constants/api-routes";
 import { TVSType } from "../../../constants/types";
+import useFetchTvShows from "../fetch-data/useFetchTvShows";
 
 const TVShowsList = () => {
   const { ref, inView } = useInView();
@@ -17,20 +14,7 @@ const TVShowsList = () => {
     error,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery({
-    queryKey: ["discover-tvshows"],
-    queryFn: async ({ pageParam }: { pageParam: number }) => {
-      const response = await axios.get(
-        `${TMDB_DISCOVER_URL("tv")}&page=${pageParam}`,
-      );
-      return response.data.results;
-    },
-    initialPageParam: 1,
-    getNextPageParam: (lastPage, allPages) => {
-      const nextPage = lastPage.length ? allPages.length + 1 : undefined;
-      return nextPage;
-    },
-  });
+  } = useFetchTvShows();
 
   useEffect(() => {
     if (inView && hasNextPage) {

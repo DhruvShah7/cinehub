@@ -1,36 +1,22 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { Card, List } from "antd";
-import axios from "axios";
 import { useEffect } from "react";
+import { Card, List, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 import { useInView } from "react-intersection-observer";
-import {
-  TMDB_DISCOVER_URL,
-  TMDB_IMG_BASE_URL,
-} from "../../../constants/api-routes";
+
+import { TMDB_IMG_BASE_URL } from "../../../constants/api-routes";
 import { MovieType } from "../../../constants/types";
+import useFetchMovies from "../fetch-data/useFetchMovies";
 
 const MoviesList = () => {
   const { ref, inView } = useInView();
 
   const {
     data: movies,
+    isLoading,
     error,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery({
-    queryKey: ["discover-movies"],
-    queryFn: async ({ pageParam }: { pageParam: number }) => {
-      const response = await axios.get(
-        `${TMDB_DISCOVER_URL("movie")}&page=${pageParam}`,
-      );
-      return response.data.results;
-    },
-    initialPageParam: 1,
-    getNextPageParam: (lastPage, allPages) => {
-      const nextPage = lastPage.length ? allPages.length + 1 : undefined;
-      return nextPage;
-    },
-  });
+  } = useFetchMovies();
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -38,7 +24,8 @@ const MoviesList = () => {
     }
   }, [inView, hasNextPage, fetchNextPage]);
 
-  if (error) return <>Error!</>;
+  if (isLoading || error)
+    return <Spin indicator={<LoadingOutlined spin />} size="large" />;
 
   return (
     <List

@@ -15,7 +15,7 @@ const MoviesHeaderAndFilter = () => (
     }}
   >
     <h2 style={{ margin: 0, display: "inline-block" }}>MOVIES</h2>
-    <Button type={"text"} size={"large"} icon={<FilterOutlined />} />
+    <Button type={"text"} size={"large"} icon={<FilterOutlined />} disabled />
   </div>
 );
 

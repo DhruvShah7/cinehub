@@ -1,7 +1,7 @@
+import { Suspense } from "react";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { Card, Skeleton } from "antd";
-import axios from "axios";
-import { Suspense } from "react";
+import axios from "../../lib/axios";
 import { TMDB_IMG_BASE_URL } from "../../constants/api-routes";
 import { CineType, MovieType, TVSType } from "../../constants/types";
 import "./genre-section-styles.css";

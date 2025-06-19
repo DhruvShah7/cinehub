@@ -1,15 +1,17 @@
+import { useEffect, useState } from "react";
 import { DesktopOutlined, VideoCameraOutlined } from "@ant-design/icons";
 import { Segmented } from "antd";
-import { useEffect, useState } from "react";
+
 import StickyHeader from "../../components/StickyHeader";
 import useIsMobile from "../../custom-hooks/useIsMobile";
 import MoviesList from "./components/MoviesList";
 import TVShowsList from "./components/TVShowsList";
+
 import "./styles/dashboard-styles.css";
 
 type TabsType = "movies" | "tv-shows";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<TabsType>("movies");
 
   const isMobile = useIsMobile();
