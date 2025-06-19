@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { TMDB_IMG_BASE_URL } from "../../../constants/api-routes";
 import { MovieType } from "../../../constants/types";
 import useFetchMovies from "../fetch-data/useFetchMovies";
+import GoogleAd from "../../../google-ads/GoogleAd";
 
 const MoviesList = () => {
   const { ref, inView } = useInView();
@@ -27,6 +28,18 @@ const MoviesList = () => {
   if (isLoading || error)
     return <Spin indicator={<LoadingOutlined spin />} size="large" />;
 
+  // This will insert a special object at regular intervals to represent an ad
+  const moviesWithAds =
+    movies?.pages
+      .flat()
+      .reduce<(MovieType | { isAd: true })[]>((acc, item, index) => {
+        acc.push(item);
+        if ((index + 1) % 4 === 0) {
+          acc.push({ isAd: true }); // ad placeholder
+        }
+        return acc;
+      }, []) || [];
+
   return (
     <List
       grid={{
@@ -38,23 +51,33 @@ const MoviesList = () => {
         xl: 6,
         xxl: 3,
       }}
-      dataSource={movies?.pages.flat()}
-      renderItem={(item: MovieType) => (
-        <List.Item ref={ref}>
-          <Card
-            hoverable
-            className="item-card"
-            cover={
-              <img
-                alt={item.title}
-                src={`${TMDB_IMG_BASE_URL}/${item.poster_path}`}
-              />
-            }
-          >
-            <Card.Meta title={item.title} />
-          </Card>
-        </List.Item>
-      )}
+      dataSource={moviesWithAds}
+      renderItem={(item: MovieType | { isAd: true }) => {
+        if ("isAd" in item) {
+          return (
+            <List.Item>
+              <GoogleAd />
+            </List.Item>
+          );
+        }
+
+        return (
+          <List.Item ref={ref}>
+            <Card
+              hoverable
+              className="item-card"
+              cover={
+                <img
+                  alt={item.title}
+                  src={`${TMDB_IMG_BASE_URL}/${item.poster_path}`}
+                />
+              }
+            >
+              <Card.Meta title={item.title} />
+            </Card>
+          </List.Item>
+        );
+      }}
     />
   );
 };

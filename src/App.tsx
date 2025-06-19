@@ -4,6 +4,12 @@ import { ConfigProvider, theme } from "antd";
 import { Outlet } from "react-router-dom";
 import CommonContextProvider from "./HOCs/Context/CommonContextProvider";
 
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
+}
+
 const queryClient = new QueryClient();
 
 const App = () => (
